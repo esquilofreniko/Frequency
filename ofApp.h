@@ -24,6 +24,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		float orientation = 0;
 		int counter = 0;
 		int counterMax = 100;
 		int bgColor = 255;

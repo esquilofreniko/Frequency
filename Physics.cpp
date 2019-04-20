@@ -81,17 +81,6 @@ ofVec3f Attractor::attract(Particle p, bool rep){
     return force; 
 }
 
-ofVec3f Attractor::repel(Particle p){
-    ofVec3f force = pos - p.pos; //whats the force direction?
-    float distance = force.length();
-    distance = ofClamp(distance, 5, 25); //constraint distance
-    force.normalize();
-    float strength = (G*mass*p.mass) / (distance * distance);
-    force = (force * strength) * -1;
-    return force;
-}
-
-
 void Attractor::setRad(int _rad){
     mass = _rad;
     rad = _rad;
@@ -99,10 +88,12 @@ void Attractor::setRad(int _rad){
 }
 
 void Attractor::draw(int color, int alpha){
+        if(color == 0){sphere.setResolution(25);}
+        else{sphere.setResolution(10);}
         ofSetColor(color,alpha);
         ofFill();
         sphere.draw();
-        ofSetColor(color,alpha);
+        ofSetColor(color,alpha*2);
         ofFill();
         sphere.drawWireframe();
 }

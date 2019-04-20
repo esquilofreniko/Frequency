@@ -30,6 +30,5 @@ class Attractor {
     void init(float x, float y, float z, int _rad, int res, float _gmult);
     void setRad(int _rad);
     ofVec3f attract(Particle p, bool repel);
-    ofVec3f repel(Particle p);
     void draw(int color, int alpha);
 };

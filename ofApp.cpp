@@ -38,7 +38,10 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){    
     for(int j=minAttractor; j<activeAttractors;j++){
+        // orientation += ofRandom(-2,2);
+        // attractor[j].sphere.setOrientation(ofQuaternion(orientation,ofVec3f(ofGetWidth()/2,ofGetHeight()/2,0)));
         attractor[j].setRad(attractor[j].rad + ofRandom(-1,2));
+        if(attractor[j].rad < 0){attractor[j].setRad(0);}
         if(attractor[j].rad > ofGetHeight()/8){attractor[j].setRad(ofGetHeight()/8);}
         if(j!=0){
             if(attractor[j].rad > ofGetHeight()/32){attractor[j].setRad(ofGetHeight()/32);}
